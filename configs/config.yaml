@@ -1,0 +1,33 @@
+# @package _global_
+
+# default configuration
+defaults:
+    # model config
+    - trainer: default_trainer.yaml
+    - model: simple_model.yaml
+    - datamodule: mnist_datamodule.yaml
+    - callbacks: default_callbacks.yaml
+    - logger: mlflow.yaml
+
+    # enable color logging
+    # - override hydra/hydra_logging: colorlog
+    # - override hydra/job_logging: colorlog
+
+work_dir: ${hydra:runtime.cwd}
+data_dir: ${work_dir}/data/
+log_dir: logs/runs/${logger.mlflow.experiment_name}/${now:%H-%M-%S}
+
+# use `python main.py debug=true` for easy debugging
+# this will run 1 train, val and test loop with only 1 batch
+debug: False
+
+disable_warnings: True
+
+hydra:
+    # output paths for hydra logs
+    run:
+        dir: ${log_dir}
+
+    sweep:
+        dir: logs/multiruns/${now:%Y-%m-%d_%H-%M-%S}
+        subdir: ${hydra.job.num}

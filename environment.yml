@@ -1,0 +1,24 @@
+channels:
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pip
+
+  - pip:
+    - torch>=1.8.1
+    - torchvision>=0.9.1
+    - pytorch-lightning>=1.2.5
+    - hydra-core>=1.1.0.dev5
+    - opencv-python
+    - python-dotenv
+    - omegaconf
+    - matplotlib
+    - pandas
+    - numpy
+    - autopep8
+    - scipy
+    - seaborn
+    - jupyter
+    - pip
+    - mlflow

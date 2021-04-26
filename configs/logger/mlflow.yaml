@@ -1,0 +1,8 @@
+# MLFlow
+
+mlflow:
+    _target_: pytorch_lightning.loggers.MLFlowLogger
+    experiment_name: "default"
+    tags:
+        stage: train
+    tracking_uri: "file:${work_dir}/mlruns"

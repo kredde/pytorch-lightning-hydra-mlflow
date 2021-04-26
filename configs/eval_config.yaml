@@ -1,0 +1,27 @@
+# @package _global_
+
+# default configuration for evaluation
+defaults:
+    - logger: mlflow.yaml
+    - trainer: default_trainer.yaml
+    # add further config for evaluation
+
+logger:
+    mlflow:
+      tags:
+        stage: eval
+
+work_dir: ${hydra:runtime.cwd}
+data_dir: ${work_dir}/data/
+
+log_dir: logs/runs/${logger.mlflow.experiment_name}/eval/${now:%H-%M-%S}
+
+disable_warnings: True
+
+hydra:
+    # output paths for hydra logs
+    run:
+        dir: ${log_dir}
+    sweep:
+        dir: logs/multiruns/${now:%Y-%m-%d_%H-%M-%S}
+        subdir: ${hydra.job.num}

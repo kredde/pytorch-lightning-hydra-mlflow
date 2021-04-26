@@ -1,0 +1,19 @@
+# @package _global_
+
+# to execute this experiment run:
+# python main.py +experiment=mnist_simple
+
+defaults:
+    - override /trainer: default_trainer.yaml
+    - override /model: simple_model.yaml
+    - override /datamodule: mnist_datamodule.yaml
+    - override /callbacks: default_callbacks.yaml
+
+seed: 42
+
+trainer:
+  max_epochs: 2
+
+logger:
+    mlflow:
+      experiment_name: "M_S_2EP"
