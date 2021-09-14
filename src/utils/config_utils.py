@@ -96,8 +96,7 @@ def log_hyperparameters(
         hparams["optimizer"] = config["optimizer"]
     if "callbacks" in config:
         hparams["callbacks"] = config["callbacks"]
-    if "quantization" in config:
-        hparams["quantization"] = config["quantization"]
+
 
     # save number of model parameters
     hparams["model/params_total"] = sum(p.numel() for p in model.parameters())

@@ -9,8 +9,6 @@ from pytorch_lightning import seed_everything
 from hydra.utils import instantiate
 from omegaconf import DictConfig
 
-from src.utils.static_quantization import quantize_static
-from src.utils.quantization_util import get_model_size
 from src.utils import config_utils
 
 log = logging.getLogger(__name__)
